@@ -12,7 +12,7 @@ body {
 
 .section-title {
     font-size: 36px;
-    color: #000000ff;
+    color: #ffffff;
     margin-bottom: 40px;
     text-shadow: 0 2px 10px rgba(156, 121, 131, 0.4);
 }
@@ -70,4 +70,5 @@ body {
         grid-template-columns: repeat(3, 1fr);
 
     }
+
 }
