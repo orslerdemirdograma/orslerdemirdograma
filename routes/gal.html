@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Galeri</title>
+<link rel="stylesheet" href="../css/gallery.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+    <section class="gallery-section">
+        <h1 class="section-title">Neler Yapıyoruz</h1>
+        <div class="gallery-container" id="gallery"></div>
+    </section>
+
+
+<script>
+    const galleryContainer = document.getElementById('gallery');
+
+    for (let i = 1; i <= 30; i++) {
+        const imgPath = `../assets/${i}.jpg`; // routes/gal.html -> ../assets/
+
+        // Kart div oluştur
+        const card = document.createElement('div');
+        card.className = 'gallery-card';
+
+        // Img element oluştur
+        const img = document.createElement('img');
+        img.src = imgPath;
+        img.alt = `Galeri ${i}`;
+        img.style.width = '100%';
+        img.style.height = '100%';
+        img.style.objectFit = 'cover';
+        img.className = 'gallery-image';
+
+        card.appendChild(img);
+        galleryContainer.appendChild(card);
+    }
+</script>
+
+
+</body>
+
+</html>

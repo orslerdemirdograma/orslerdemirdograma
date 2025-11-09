@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="css/home.css">
+</head><body>
+
+    <div id="header-container"></div>
+    <main id="content">
+    </main>
+
+    <footer>
+        <div class="container" style="text-align:center; padding:20px;">
+            <p>&copy; 2025 ÖRSLER Demir Doğrama. Tüm Hakları Saklıdır</p>
+            <div class="social-media" style="margin-top:10px;">
+                <a href="https://www.instagram.com/orslerdemirdograma" target="_blank"
+                    style="margin:0 10px; color:#E1306C;">
+                    <i class="fab fa-instagram fa-lg"></i>
+                </a>
+           
+            </div>
+    <p style="margin-top:10px; font-size:14px; color:#555;">
+        Bu site
+        <a href="https://www.linkedin.com/in/veysel-uğurlu-aa1809258" target="_blank"
+            style="color:#0077B5; text-decoration:none; font-weight:bold;">
+            Veysel Uğurlu
+        </a>
+        tarafından oluşturulmuştur.
+    </p>
+    </footer>
+<script src="js/homeCarousel.js"></script>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const headerContainer = document.getElementById("header-container");
+            const content = document.getElementById("content");
+
+            // Header'ı yükle
+            fetch('includes/header.html')
+                .then(response => response.text())
+                .then(html => {
+                    headerContainer.innerHTML = html;
+
+                 const topInfoBar = document.querySelector('.top-info-bar');
+                    const topBar = document.querySelector('.top-bar');
+                    let lastScrollY = window.scrollY; // en son scroll pozisyonunu tutar
+
+                    window.addEventListener("scroll", () => {
+                        const currentScroll = window.scrollY;
+
+                        if (currentScroll > lastScrollY && currentScroll > 100) {
+                            topInfoBar.style.top = "-50px";
+                            topBar.style.top = "-130px";
+                        } else {
+                            topInfoBar.style.top = "0";
+                            topBar.style.top = "50px";
+                        }
+
+                        lastScrollY = currentScroll;
+                    });
+
+                    const navLinks = headerContainer.querySelectorAll("nav a");
+                    navLinks.forEach(link => {
+                        link.addEventListener("click", e => {
+                            e.preventDefault();
+                            const page = link.getAttribute("data-page");
+                            loadPage(page);
+                        });
+                    });
+                });
+            // Galeri sayfası için resimleri yükleyen fonksiyon
+            function loadGallery() {
+                const galleryContainer = document.getElementById('gallery');
+                if (!galleryContainer) return;
+
+                galleryContainer.innerHTML = ''; // önce temizle
+
+                for (let i = 1; i <= 30; i++) {
+                    const imgPath = `assets/${i}.jpg`; // index.html bazlı path
+                    const card = document.createElement('div');
+                    card.className = 'gallery-card';
+
+                    const img = document.createElement('img');
+                    img.src = imgPath;
+                    img.alt = `Galeri ${i}`;
+                    img.style.width = '100%';
+                    img.style.height = '100%';
+                    img.style.objectFit = 'cover';
+                    img.className = 'gallery-image';
+
+                    card.appendChild(img);
+                    galleryContainer.appendChild(card);
+                }
+            }
+         async function loadPage(page) {
+                const response = await fetch(`routes/${page}.html`);
+              
+                if (response.ok) {
+                    const html = await response.text();
+                    content.innerHTML = html;
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                    if (page === 'home') {
+                        setTimeout(() => initHomeCarousel(), 100);
+                    }
+                    if (page === 'gal') {
+                        loadGallery();
+                    }
+                    
+                    
+                }
+            
+            else {
+                    content.innerHTML = "<h2>Sayfa bulunamadı.</h2>";
+                }
+            }
+
+            loadPage("home");
+        });
+    </script>
+</body>

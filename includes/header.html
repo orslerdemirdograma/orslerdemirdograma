@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>ÖRS Demir Doğrama</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<style>
+  body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #fff;
+  color: #333;
+  padding-top: 160px;
+}
+
+/* Üst bilgi barı */
+.top-info-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  background-color: #2e2e2e;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  font-size: 14px;
+  z-index: 1000;
+  transition: top 0.3s ease;
+}
+
+.top-info-bar .info-left {
+  margin-right: 20px;
+}
+
+.top-info-bar .social-icons {
+  display: flex;
+  gap: 15px;
+}
+
+.top-info-bar .social-icons a {
+  color: #fff;
+  font-size: 1em;
+  transition: opacity 0.3s ease;
+}
+
+.top-info-bar .social-icons a:hover {
+  opacity: 0.8;
+}
+
+/* Üst menü barı */
+.top-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  padding: 10px 20px;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 50px;
+  width: 100%;
+  z-index: 999;
+  transition: all 0.3s ease;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo-container img {
+  width: 80px;
+  height: auto;
+  border-radius: 10%;
+  transition: width 0.3s ease;
+}
+
+.top-bar nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  max-width: 90%;
+  text-align: center;
+}
+
+.top-bar nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  font-size: 16px;
+}
+
+.top-bar nav a:hover {
+  background-color: #0a0a0a;
+  color: #fff;
+}
+
+/* --- RESPONSIVE DÜZEN --- */
+
+/* Tablet görünüm */
+@media (max-width: 992px) {
+  body {
+    padding-top: 140px;
+  }
+
+  .top-bar {
+    gap: 15px;
+    flex-direction: column;
+    top: 50px;
+    padding: 8px 10px;
+  }
+
+  .logo-container img {
+    width: 70px;
+  }
+
+  .top-bar nav a {
+    font-size: 15px;
+    padding: 6px 10px;
+  }
+}
+/* Küçük ekran (768px ve altı) */
+@media (max-width: 768px) {
+  body {
+    padding-top: 95px; /* top-info-bar + top-bar yüksekliği toplamı */
+  }
+
+  .top-info-bar {
+    flex-direction: column;
+    height: 40px; /* eski 50px'den küçük */
+    font-size: 12px;
+    padding: 6px 10px; /* padding optimize edildi */
+    line-height: 1.2;
+  }
+
+  .top-bar {
+    top: 40px; /* top-info-bar'ın yeni yüksekliği ile eşit */
+    height: 95px; /* ihtiyaca göre */
+    flex-direction: column;
+    gap: 6px;
+    padding: 6px 10px;
+  }
+
+  .logo-container img {
+    width: 60px;
+  }
+
+  .top-bar nav a {
+    font-size: 14px;
+    padding: 5px 8px;
+  }
+}
+
+/* Çok küçük ekran (480px ve altı) */
+@media (max-width: 480px) {
+  body {
+    padding-top: 85px; /* top-info-bar + top-bar yüksekliği toplamı */
+  }
+
+  .top-info-bar {
+    height: 35px; /* daha küçük */
+    font-size: 11px;
+    padding: 4px 8px;
+  }
+
+  .top-bar {
+    top: 35px; /* top-info-bar'ın yeni yüksekliği ile eşit */
+    height: 50px;
+    gap: 5px;
+    padding: 4px 8px;
+  }
+
+  .logo-container img {
+    width: 50px;
+  }
+
+  .top-bar nav a {
+    font-size: 13px;
+    padding: 4px 6px;
+  }
+}
+
+
+/* Geçiş efektleri */
+.top-bar, .top-info-bar {
+  transition: all 0.3s ease;
+}
+
+
+</style>
+
+</head>
+<body>
+ 
+<div class="top-info-bar">
+    <div class="info-left">
+        <span>0505 240 90 99  | 0530 280 90 99 | WhatsApp</span>
+    </div>
+
+      <div class="social-icons">
+        <a href="https://www.instagram.com/orslerdemirdograma" target="_blank" style="color: #E1306C;">
+            <i class="fab fa-instagram fa-lg"></i>
+        </a>
+   
+    </div>
+</div>
+
+<div class="top-bar">
+    <div class="logo-container">
+        <img src="assets/0.jpg" alt="Logo" class="header-logo">
+    </div>
+
+
+    <nav>
+        <a href="#" data-page="home">Ana Sayfa</a>
+        <a href="#" data-page="about">Hakkımızda</a>
+        <a href="#" data-page="gal">Galeri</a>
+        <a href="#" data-page="contact">İletişim</a>
+    </nav>
+  
+</div>
+
+<main>
+    <div></div>
+</main>
+<script>
+  const topInfoBar = document.querySelector('.top-info-bar');
+  const topBar = document.querySelector('.top-bar');
+  window.addEventListener("scroll", () => {
+    const currentScroll = window.pageYOffset;
+
+    if (currentScroll > 50) {
+      topInfoBar.style.top = "-40px"; // top-info-bar'ın küçültülmüş yüksekliğiyle eşleşmeli
+      topBar.style.top = "0";
+    } else {
+      topInfoBar.style.top = "0";
+      topBar.style.top = "40px"; // top-info-bar yüksekliği ile aynı olmalı
+    }
+  });
+
+
+
+</script>
+
+
+</body>
+</html>
