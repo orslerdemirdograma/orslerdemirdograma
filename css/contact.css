@@ -8,7 +8,7 @@
 #contact h2 {
     font-size: 2.2em;
     color: #333;
-    margin-bottom: 30px;
+    margin: 30px;
     position: relative;
     display: inline-block;
     font-weight: 600;
@@ -108,5 +108,24 @@
 
     .contact-info p {
         text-align: center;
+    }
+
+}
+@media (max-width: 480px) {
+    #contact h2 {
+        font-size: 1.6em;
+    }
+
+    #contact h2::after {
+        width: 40px;
+        height: 2px;
+    }
+
+    #contact p {
+        font-size: 0.95em;
+    }
+
+    .map-container iframe {
+        height: 260px;
     }
 }
